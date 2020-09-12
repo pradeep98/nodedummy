@@ -1,0 +1,55 @@
+<html>
+  <%- include('./header.ejs') %>
+
+    <body>
+      <%- include('./nav.ejs') %>
+        
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+
+            <% if (messages.error){ %>
+                <div class='alert alert-danger'>
+                    <%= messages.error %>
+                </div>
+            <% } %>
+              
+            <article class='posc'>
+                <div class="row">
+                    <div class='col-sm-2 col-md-2 col-lg-2' >
+                        <div class="profile-img img-pro-det">
+                            <img class="img-fluidx img-responsive" src=""/>
+                        </div>       
+                    </div>
+                    <div class="col-sm-10 col-md-10 col-lg-10 post">
+                        
+                        <div class='row'>
+                                <div class='author col-xs-8 col-sm-8 col-md-8 col-lg-8' > 
+                                    <strong> <a href="/blogs/user/<%= post.author %>" class="mr-2"><%= post.author %></a>
+                                     </strong>
+                                </div>
+                                <div class='date col-xs-4 col-sm-4 col-md-4 col-lg-4' >  <%= post.time %>  </div>
+                                
+                                {% if post.author.id == user.id %}
+                                    <div class="delete-post">
+                                        <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="/blogs/edit/<%= post.id %>" type="submit" >Update</a>       
+                                        <a class="btn btn-outline-danger btn-sm mt-1 mb-1 " href='/blogs/delete/<%= post.id %>'>Delete</a>
+                                    
+                                    </div>
+                                {% endif %}
+                        </div>
+                        <div class='title'><h5><%= post.title %></h5></div>
+                        <div class='description'> <%= post.description %> </div>
+                        <div class='content'> <%= post.content %> </div>
+                    </div>
+                </div>
+            </article>
+            
+          </div>
+          <%- include('./sidenav.ejs') %>     
+        </div>  
+      </div>
+    <%- include('./footer.ejs') %>
+  </body>
+</html>
+        

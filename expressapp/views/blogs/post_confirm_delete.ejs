@@ -1,0 +1,57 @@
+<html>
+  <%- include('./header.ejs') %>
+
+    <body>
+      <%- include('./nav.ejs') %>
+        
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+              
+            <!--  Here where we' ll work  -->
+
+            <div class='content-section'>
+                
+            
+                    <fieldset class='form-group'>
+                        <legend class="border-bottom mb-4">Delete Post</legend>
+                        <h2>Are you sure you want to delete <%= title %>
+                    </fieldset>
+            
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-danger btn-sm mt-1 mb-1 delete" data-doc = '<%= id %>' >Delete</button>
+                        <a href="/blogs/<%= id %>" type="submit" class="btn btn-outline-secondary">Cancel</a>
+                        
+                    </div>
+            
+                
+            </div>
+              
+            
+          </div>
+          <%- include('./sidenav.ejs') %>     
+        </div>  
+      </div>
+    <%- include('./footer.ejs') %>     
+
+    <script>
+        const trash = document.querySelector('button.delete');
+        trash.addEventListener('click', (e) => {
+          const endpoint = `/blogs/${trash.dataset.doc}`;
+          fetch(endpoint, {method: 'DELETE'})
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            window.location.href = data.redirect;
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+        });
+        
+        
+      </script>
+  </body>
+</html>
+        

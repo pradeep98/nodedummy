@@ -1,0 +1,53 @@
+<html>
+<%- include('../partials/header.ejs') %>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+
+                <% if (messages.success_message){ %>
+                    <div class='alert alert-success'>
+                        <%= messages.success_message %>
+                    </div>
+                <% } %>
+                <% if (messages.error){ %>
+                    <div class='alert alert-danger'>
+                        <%= messages.error %>
+                    </div>
+                <% } %>
+
+                <div class='content-section'>
+                    <form action='/users/login' method="POST">
+                        <legend class="border-bottom mb-4">Login In Now</legend>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" name='email' class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name='password' class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                    <div class='border-top pt-3'>
+                        <small class="text-muted">Don't Have An Account? <a href='/users/register'
+                                class='ml-2'>Register</a></small>
+                    </div>
+
+                </div>
+            </div>
+            <%- include('../partials/sidenav.ejs') %>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

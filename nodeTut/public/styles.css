@@ -1,0 +1,15 @@
+<style>
+nav, ul{
+	display: flex;
+	
+}
+body{
+	background: grey;
+}
+.del{
+	background: #900;
+	color: white;
+}
+a:hover{
+	cursor: pointer;
+}

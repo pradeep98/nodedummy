@@ -1,0 +1,73 @@
+<html>
+<%- include('./header.ejs') %>
+
+<body>
+    <%- include('./nav.ejs') %>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+
+                <!--  Here where we' ll work  -->
+                <% if(posts.length > 0) {%>
+                    <% for (post of posts) {%>
+                        <article class='posc'>
+                            <div class="row">
+                                <div class='col-sm-2 col-md-2 col-lg-2'>
+                                    <div class="profile-img img-pro-det">
+                                        <img class="img-fluidx " src="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-10 col-md-10 col-lg-10 post">
+                                    <div class='row'>
+                                        <div class='author col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                                            <strong> <a href="/blogs/user/<%= post.author %>"
+                                                    class="mr-2"><%= post.author %> </a>
+                                            </strong>
+                                        </div>
+                                        <div class='date col-xs-4 col-sm-4 col-md-4 col-lg-4'> <%= post.time %> </div>
+                                    </div>
+                                    <div class='title'>
+                                        <h5><a href="/blogs/<%= post.id %>"><%= post.title %></a></h5>
+                                    </div>
+                                    <div class='description'> <%= post.description %> </div>
+                                </div>
+                            </div>
+                        </article>
+                    <% } %>
+                <% } %>
+    
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+                <a class="btn btn-outline-info sm-3" href="?page=1">1</a>
+                <a class="btn btn-outline-info sm-3" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+                {% endif %}
+
+                {% for  num in page_obj.paginator.page_range %}
+
+                {% if page_obj.number == num %}
+                <a class="btn btn-info sm-3" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info sm-3" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <a class="btn btn-outline-info sm-3" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info sm-3"
+                    href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages  }}</a>
+                {% endif %}
+
+                {% endif %}
+
+
+                    
+            </div>
+            <%- include('./sidenav.ejs') %>
+        </div>
+    </div>
+    <%- include('./footer.ejs') %>
+</body>
+
+</html>

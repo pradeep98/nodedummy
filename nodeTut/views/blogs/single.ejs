@@ -1,0 +1,43 @@
+<html>
+
+<%- include('./head.ejs') %>
+
+<body>
+
+<script>0</script>
+
+<%- include('./navigation.ejs') %>
+	<h1><%= blog.title %></h1>
+	<h2>Blog Snippet</h2>
+		<h3><%= blog.snippet %></h3>
+	<h3>Blog Body</h3>
+		<h4><%= blog.body %></h>
+	<br>
+	<a href="/blogs/edit/<%= blog._id %>">Edit</a>
+	
+	<button class='delete' data-doc = '<%= blog._id %>'>Delete</button>
+<%- include('./footer.ejs')   %>
+
+
+<script>
+	const trash = document.querySelector('button.delete');
+	trash.addEventListener('click', (e) => {
+		const endpoint = `/blogs/${trash.dataset.doc}`;
+		fetch(endpoint, {method: 'DELETE'})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			window.location.href = data.redirect;
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+	});
+	
+	
+</script>
+</body>
+	
+
+</html>

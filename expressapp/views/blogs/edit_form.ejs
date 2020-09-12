@@ -1,0 +1,39 @@
+<html>
+<%- include('../partials/header.ejs') %>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                <div class='content-section'>
+                    <form action='' method="POST">
+                        <legend class="border-bottom mb-4">Add New Post</legend>
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input type="text" name='title' class="form-control" id="title"
+                                placeholder="Title Here">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" name='description' class="form-control" id="description"
+                                placeholder="Desc..">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <input type="textarea" name='content' class="form-control" id="content"
+                                placeholder="Write....">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+            <%- include('../partials/sidenav.ejs') %>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

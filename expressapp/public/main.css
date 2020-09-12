@@ -1,0 +1,174 @@
+
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
+
+body{ background-color: rgb(243, 236, 236); font-size: 14px; color: #333; list-style: 26px;font-family: 'Roboto', sans-serif; }
+
+.img-fluidx {
+    width: 100%;
+    height: 100%;  
+    object-fit: cover;
+}
+.img-pro-det{
+    padding-top: 3px;
+    height: 60px; 
+    width: 91px; 
+}
+.content-section{
+    padding-top:15px;
+}
+.profile-content{
+    background-color: white;
+}
+.profile-img{
+    text-align: center;
+}
+
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.loginout{
+    float: right;
+}
+
+/** ======================  base css ==============================**/
+
+a:hover{ text-decoration: none; }
+
+.posc{
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 5px 15px 15px 15px;
+}
+.post{
+    margin-top: 10px;
+    background-color: white;
+    padding: 5px 15px 15px 15px;
+}
+
+.post .row{
+    border-width: 0 0 1px 0;
+    border-color: rgb(243, 236, 236);
+    border-style: solid;
+    padding-top: 0;
+}
+.post .author{
+    color: #28a745;
+    padding: 0px 5px 5px 5px;
+}
+.author .mr-2{
+    color: #28a745;
+}
+.author .mr-2:hover{
+    color: #720202;
+}
+.post .date{
+    float: right;
+    text-align: right;
+}
+
+.post .title {
+    padding: 5px 0 0 0;
+}
+
+.delete-post a{
+    float: right;
+}
+
+/***    right menu ****/
+/***********************  TOP Bar ********************/
+.sidebar{ width:250px;  margin-top: 10px;  background-color:#000;transition: all 0.5s  ease-in-out; float: right;}
+.bg-defoult{background-color:#222;}
+.sidebar ul{ list-style:none; margin:0px; padding:0px; }
+.sidebar li a,.sidebar li a.collapsed.active{ display:block; padding:8px 12px; color:#fff;border-left:0px solid #dedede;  text-decoration:none}
+.sidebar li a.active{background-color:#000;border-left:5px solid #dedede; transition: all 0.5s  ease-in-out}
+.sidebar li a:hover{background-color:#000 !important;}
+.sidebar li a i{ padding-right:5px;}
+.sidebar ul li .sub-menu li a{ position:relative}
+.sidebar ul li .sub-menu li a:before{
+    font-family: FontAwesome;
+    content: "\f105";
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+.sidebar ul li .sub-menu li a:hover:after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0;
+    width: 5px;
+    background-color: #111;
+    height: 100%;
+}
+.sidebar ul li .sub-menu li a:hover{ background-color:#222; padding-left:20px; transition: all 0.5s  ease-in-out}
+.sub-menu{ border-left:5px solid #dedede;}
+	.sidebar li a .nav-label,.sidebar li a .nav-label+span{ transition: all 0.5s  ease-in-out}
+	
+
+	.sidebar.fliph li a .nav-label,.sidebar.fliph li a .nav-label+span{ display:none;transition: all 0.5s  ease-in-out}
+	.sidebar.fliph {
+    width: 42px;transition: all 0.5s  ease-in-out;
+   
+}
+	
+.sidebar.fliph li{ position:relative}
+.sidebar.fliph .sub-menu {
+    position: absolute;
+    left: 39px;
+    top: 0;
+    background-color: #222;
+    width: 150px;
+    z-index: 100;
+}
+	
+.user-panel {
+    clear: left;
+    display: block;
+    float: right;
+}
+.user-panel>.image>img {
+    width: 100%;
+    max-width: 45px;
+    height: auto;
+}
+.user-panel>.info,  .user-panel>.info>a {
+    color: #fff;
+}
+.user-panel>.info>p {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.user-panel {
+    clear: right;
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 15px 25px;
+    border-bottom: 1px solid;
+}
+.user-panel>.info {
+    float: right;
+    padding: 5px 5px 5px 5px;
+    line-height: 1;
+    position: absolute;
+    right: 25px;
+}
+
+.fliph .user-panel{ display: none; }
+ 

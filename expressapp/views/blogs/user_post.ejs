@@ -1,0 +1,44 @@
+<html>
+<%- include('./header.ejs') %>
+
+<body>
+    <%- include('./nav.ejs') %>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                <h1 class="mb-3">Posts by USER (<%= posts.length %>)</h1>
+                <!--  Here where we' ll work  -->
+                <% if(posts.length > 0) {%>
+                    <% for (post of posts) {%>
+                        <article class='posc'>
+                            <div class="row">
+                                <div class='col-sm-2 col-md-2 col-lg-2' >
+                                    <div class="profile-img img-pro-det">
+                                        <img class="img-fluidx " src=""/>
+                                    </div>       
+                                </div>
+                                <div class="col-sm-10 col-md-10 col-lg-10 post">
+                                    <div class='row'>
+                                        <div class='author col-xs-8 col-sm-8 col-md-8 col-lg-8' > 
+                                            <strong><a href="/blogs/user/<%= post.author %>" class="mr-2"><%= post.author %> </a> </strong>
+                                        </div>
+                                        <div class='date col-xs-4 col-sm-4 col-md-4 col-lg-4' >  <%= post.time %>  </div>
+                                    </div>
+                                    <div class='title'><h5><a href="/blogs/<%= post.id %>"><%= post.title %></a></h5></div>
+                                    <div class='description'> <%= post.description %> </div>
+                                </div>
+                            </div>
+                        </article>
+                    <% } %>
+                <% } %>
+
+                    
+            </div>
+            <%- include('./sidenav.ejs') %>
+        </div>
+    </div>
+    <%- include('./footer.ejs') %>
+</body>
+
+</html>

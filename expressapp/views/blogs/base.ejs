@@ -1,0 +1,22 @@
+<html>
+  <%- include('./header.ejs') %>
+
+    <body>
+      <%- include('./nav.ejs') %>
+        
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+              
+            <!--  Here where we' ll work  -->
+
+
+              {% block content %} {% endblock %}
+          </div>
+          <%- include('./sidenav.ejs') %>     
+        </div>  
+      </div>
+    <%- include('./footer.ejs') %>     
+  </body>
+</html>
+        

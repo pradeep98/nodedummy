@@ -1,0 +1,42 @@
+{% extends 'patram/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <div class='row'>
+            <div class="col-md-5">
+                <div class="profile-img">
+                    <img  src="{{ user.profile.image.url }}"/>
+                </div>
+            </div>
+            <div class="col-md-7 profile-content">
+                <div class="profile-head">
+                    <h4>
+                        {{ user.username }}
+                    </h4>
+                    <p class="profile-rating">RANKINGS : <span>8/10</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6 profile-content">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        
+                    <fieldset class='form-group'>
+                        <legend class="border-bottom mb-4">Profile</legend>   
+                        
+                            {{ u_form|crispy }}
+                            {{ p_form|crispy }}
+                    </fieldset>
+                        
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-info">Update</button>
+                    </div>  
+                </form>
+                        
+            </div>
+            <div class="col-md-2"></div>
+        </div>   
+    </div>
+    {% endblock content %}
